@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <title>COMP 3512 Assign1</title>		
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+
+    <!-- Default View -->
+    <main id="defaultView" class="gridContainer">
+        <div id="header" class="gridItem">
+            <h1>COMP 3512 Assign1</h1>
+            <h2>Mark Frezell</h2>
+        </div>
+        <div id="galleryList" class="gridItem mainView">
+            <h2>Gallery List</h2>
+
+            <ul id="galleriesUL">
+
+            </ul>
+
+
+        </div>
+        <div id="galleryInfo" class="gridItem mainView">
+            <h2>Gallery Info</h2>
+            <!-- Table with two rows for Gallery Info -->
+            <table>
+                <tr>
+                    <td class="infoTitle"><p>Gallery Name:</p></td>
+                    <td class="info"><p id="galleryName"></p></td>
+                </tr>
+                <tr>
+                    <td class="infoTitle"><p>Gallery <br>Native Name:</p></td>
+                    <td class="info"><p id="galleryNativeName" ></p></td>
+                </tr>
+                <tr>
+                    <td class="infoTitle"><p>Gallery City:</p></td>
+                    <td class="info"><p id="galleryCity"></p></td>
+                </tr>
+                <tr>
+                    <td class="infoTitle"><p>Gallery City:</p></td>
+                    <td class="info"><p id="galleryAddress"></p></td>
+                </tr>
+                <tr>
+                    <td class="infoTitle"><p>Gallery Address:</p></td>
+                    <td class="info"><p id="galleryCountry"></p></td>
+                </tr>
+                <tr>
+                    <td class="infoTitle"><p>Gallery Website:</p></td>
+                    <td class="info"><p id="galleryWebsite"></p></td>
+                </tr>
+            </table>
+        </div>
+        <div id="map" class="gridItem mainView">
+            <h2>Map</h2>
+        </div>
+        <div id="paintingList" class="gridItem mainView">
+            <h2>Painting List</h2>
+            <table id="paintingTable">
+                <tr id="columnNames">
+                    <td></td>
+                    <td>Artist</td>
+                    <td>Title</td>
+                    <td>Year</td>
+                </tr>
+
+                <!-- Paintings are generated to this table -->
+
+            </table>
+        </div>
+    </main>
+
+
+    <!-- Single Painting View -->
+    <div id="singleView" class="hideView">
+        <section id="singlePaintingView" class="gridItem">
+
+            <!-- Image Div -->
+            <div id="imgDiv">
+                <img src="C:\Users\markf\Downloads\localStorage.JPG" id="singleImg" alt="photo of Mary?">
+            </div>
+            <!-- Text Div -->
+            <div id="textDiv">
+                <h1 id="singleTitle">Painting Title</h1>
+                <p id="singleArtist">Artist Name</p>
+                <p id="singleDescription">This is where the description of the painting will go</p>
+
+                <!-- This grid division displays misc descriptors -->
+                <div id="singleGrid">
+                    <p class="title">Year of Work:</p>
+                    <p id="singleYear">[year]</p>
+                    
+                    <p class="title">Medium:</p>
+                    <p id="singleMedium">[medium]</p>
+
+                    <p class="title">Width:</p>
+                    <p id="singleWidth">[width]</p>
+
+                    <p class="title">Height:</p>
+                    <p id="singleHeight">[height]</p>
+                    
+                    <p class="title">Gallery Name:</p>
+                    <p id="singleGalName">[galleryName]</p>
+
+                    <p class="title">Gallery City:</p>
+                    <p id="singleGalCity">[galleryCity]</p>
+
+                    <p class="title">Copyright:</p>
+                    <p id="singleCopyright">[copyright]</p>
+                    
+                    <p class="title">Museum Link:</p>
+                    <p id="singleMuseumLink">[museumLink]</p>
+
+
+                </div>
+
+                <!-- Color Palette -->
+                <h2>Colors</h2>
+                <div id="colorsFlex">
+                    <!-- This is where boxes of colors will be dynamically generated -->
+                </div>
+
+                <button id="closeBtn" onclick="toggleHidden()">Close</button>
+            </div>
+
+        </section>
+    </div>
+    <script src="index.js"></script>
+</body>

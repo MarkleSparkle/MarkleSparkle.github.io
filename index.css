@@ -1,0 +1,197 @@
+/* Start of General Styling */
+h1{
+    font-size: large;
+}
+
+h2{
+    font-size: medium;
+}
+
+h3{
+    font-weight: 200;
+}
+
+/* Start of Default View CSS Characterists */
+#defaultView{
+    display: grid;
+    grid-template-columns: 3fr 7fr 11fr; /* 3 columns */
+    grid-template-rows: 1fr, 1fr, 1fr; /* 3 rows */
+}
+
+.gridContainer{
+    background-color: rgb(255, 255, 255);
+    gap: 5px;
+    padding: 5px;
+}
+
+.gridItem{  
+    background-color:  rgba(243, 243, 243, 0.8);
+    text-align: center;
+    border: 1px solid black;
+}
+
+/* Header Grid Section */
+#header{
+    grid-column-start: 1; /* Header spans all columns */
+    grid-column-end: 4;
+
+    text-align: left;
+    padding:0px 0px 0px 50px;
+}
+
+/* Gallery List Grid Section */
+#galleryList{
+    grid-row-start: 2; /* Gallery List spans 2 rows after 1st row */
+    grid-row-end: 4;
+
+}
+
+#galleriesUL{
+    list-style-type: none;
+    padding: 2px;
+    max-height: 400px;
+    overflow: auto;
+}
+
+.galleryItem{ /* A Gallery Item is a gallery in the list of galleries */
+    padding: 7px;
+    margin: 3px;
+    font-size: small;
+    border: 1px solid black;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Gallery Info Grid Section */
+#galleryInfo{
+    grid-column-start: 2; /* Gallery Info resides in the center of the grid*/
+    grid-column-end: 3;
+
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.infoTitle{
+    text-align: right; /* Title for each Gallery Info item */
+    padding: 0px;
+    font-size: medium;
+    font-weight: 600;
+    margin: 0px;
+    margin-left: 5px;
+}
+
+.info{
+    text-align: left; /* Title for each Gallery Info item */
+    padding-left: 15px;
+    font-size: medium;
+    margin: 0px;
+}
+
+.infoTitle p{
+    margin: 5px 0px;
+}
+
+#galleryList tr, #galleryList td, #galleryList p{
+    padding:0px;
+    margin:0px;
+}
+
+
+/* Map Grid Section */
+#map{
+    grid-column-start: 2; /* Map resides the bottom-middle of the grid */
+    grid-column-end: 3;
+
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+/* Painting List Grid Section */
+#paintingList{
+    grid-column-start: 3; /* Painting List fiLls the right-most column under the header*/
+    grid-column-end: 4;
+
+    grid-row-start: 2;
+    grid-row-end: 4;
+}
+
+#paintingTable{
+    padding: 5px 5px;
+    text-align: center;
+    width: 100%;
+    height: 400px;
+    display: inline-block;
+    overflow: auto;
+}
+
+#paintingTable tr td{
+    border-right: 1px solid black;
+    padding: 0px 15px;
+    text-align: left;
+}
+
+#columnNames td{
+    font-weight: 600;
+    border-bottom: 1px solid black;
+    color: blue;
+    text-decoration: underline;
+}
+
+/* Start of Single Painting View CSS Characterists */
+
+.hideView{
+    display: none;
+}
+
+#singlePaintingView{
+    
+    width: 100%;
+    /* remove the height after everything is added */
+    display: inline-flex;
+    flex-direction: row;
+    text-align: left;
+}
+
+#imgDiv, #textDiv{
+    margin: 15px;
+}
+
+#singleTitle{
+    border-bottom: 1px solid black;
+}
+
+#singleArtist{
+    font-style: italic;
+}
+
+#singleGrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+
+#singleGrid p{
+    padding: 0px 5px;
+    margin: 0px;
+    overflow: wrap;
+}
+
+/* This is the title of the descriptors */
+/* in the single grid */
+.title{ 
+    font-weight: 800;
+}
+
+#colorsFlex{
+    display: flex;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.color{
+    width: 25px;
+    height: 25px;
+    margin: 5px;
+}
