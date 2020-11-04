@@ -10,6 +10,9 @@ h2{
 h3{
     font-weight: 200;
 }
+.loader{
+    width: 50px;
+}
 
 /* Start of Default View CSS Characterists */
 #defaultView{
@@ -136,6 +139,18 @@ h3{
     color: blue;
     text-decoration: underline;
 }
+#columnNames td:hover{
+    cursor: pointer;
+}
+.galleryItem:hover{
+    cursor: pointer;
+}
+td img:hover{
+    cursor: pointer;
+}
+#singleImg:hover{
+    cursor: pointer;
+}
 
 /* Start of Single Painting View CSS Characterists */
 
@@ -187,6 +202,7 @@ h3{
 #colorsFlex{
     display: flex;
     width: 100%;
+    max-width: 200px;
     margin-bottom: 20px;
 }
 
@@ -197,7 +213,7 @@ h3{
 }
 
 /* Start of the Model CSS styling */
-/* Code portion retrieved from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal_img*/
+/* Code portion retrieved from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal_img */
 
 
 /* The Modal (background) */

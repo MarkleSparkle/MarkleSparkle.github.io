@@ -3,26 +3,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     main();
 
-    // Get the modal
-    var modal = document.getElementById("myModal");
-
-    // Get the image and insert it inside the modal - use its "alt" text as a caption
-    var img = document.getElementById("singleImg");
-    var modalImg = document.getElementById("img01");
-    var captionText = document.getElementById("caption");
-    img.onclick = function(){
-        modal.style.display = "block";
-        modalImg.src = this.src;
-        captionText.innerHTML = this.alt;
-    }
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() { 
-        modal.style.display = "none";
-    }
 });
 
 //global variables (URLs)
@@ -33,12 +13,17 @@ var galleriesGlobal;
 //main code body
 function main(){
 
+    let galleriesUL = document.querySelector("#galleriesUL");
+    galleriesUL.innerHTML = '<img src="./assets/loader.gif" class="loader">';
+
     fetch(gallerysURL)
     .then(resp => resp.json())
     .then(galleries => {
 
+        galleriesUL.innerHTML = ""; //clear loader
+
         galleriesGlobal = galleries;
-        let galleriesUL = document.querySelector("#galleriesUL");
+        galleriesUL = document.querySelector("#galleriesUL");
         for(gallery of galleries){
             //creating a list element for each gallery in the array
             let newLI = document.createElement("li");
@@ -65,10 +50,16 @@ function populateGallery(e){
 
     populateGalleryInfo(e);
 
+    //add loader before fetch executes
+    let paintingUL = document.querySelector("#paintingTable");
+    paintingUL.innerHTML = '<img src="./assets/loader.gif" class="loader">';
+
     //fetching the paintings based on the target's value (which is the GalleryID)
     fetch(paintingsURL+e.target.value)
     .then(resp2 => resp2.json())
     .then(paintings => {
+
+        paintingUL.innerHTML = "";//clear loader
 
         generateTable(paintings);
 
@@ -232,6 +223,8 @@ function toggleHidden(){
 
 function populateSingleView(e, paintings){
 
+    generateModal();
+
     //loops through the paintings to find the one that you clicked on
     for(painting of paintings){ 
         if(e.target.value == painting.PaintingID){
@@ -250,17 +243,17 @@ function populateSingleView(e, paintings){
 
             //misc details
             document.querySelector("#singleYear").textContent = painting.YearOfWork;
-            document.querySelector("#singleMedium").textContent = "450px";
+            document.querySelector("#singleMedium").textContent = painting.Medium;
             document.querySelector("#singleWidth").textContent = "450px";
-            document.querySelector("#singleHeight").textContent = painting.Height;
+            document.querySelector("#singleHeight").textContent = "450px";
             document.querySelector("#singleGalName").textContent = painting.GalleryName;
             document.querySelector("#singleGalCity").textContent = painting.GalleryCity;
-            document.querySelector("#singleCopyright").textContent = painting.CopyrightText;
+            document.querySelector("#singleCopyright").innerHTML = painting.CopyrightText;
             document.querySelector("#singleMuseumLink").textContent = painting.MuseumLink;
             
             //Adding the colors
+            document.querySelector("#colorsFlex").innerHTML = "";//clear all children
             let colors = painting.JsonAnnotations.dominantColors;
-            console.log(colors);
             for(color of colors){
                 //creating the element
                 let colorDiv = document.createElement("div");
@@ -273,9 +266,32 @@ function populateSingleView(e, paintings){
                 //appending the element
                 document.querySelector("#colorsFlex").appendChild(colorDiv);
 
-                console.log("Color name: "+ colorDiv.title +" / Color bgcolor:"+"rgb("+color.red+","+color.green+","+color.blue+")");
             }
 
         }
     }
+}
+
+/* The following JavaScript was retreived from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal_img */ 
+function generateModal(){
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the image and insert it inside the modal - use its "alt" text as a caption
+        var img = document.getElementById("singleImg");
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+        img.onclick = function(){
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
+        }
+    
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+    
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() { 
+            modal.style.display = "none";
+        }
 }
