@@ -212,6 +212,17 @@ td img:hover{
     margin: 5px;
 }
 
+button{
+    background-color: cadetblue;
+    color: black;
+    border-radius: 5px;
+}
+
+button:hover{
+    background-color: navy;
+    color:white;
+}
+
 /* Start of the Model CSS styling */
 /* Code portion retrieved from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal_img */
 
